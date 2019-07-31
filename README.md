@@ -5,13 +5,10 @@ I don't claim originality for the Armageddon and Defiled runes - they are direct
 
 (note to MountainDrew - I kept the names so that people would be able to switch between the two and understand what the runes do. If this bothers you, leave an issue report on this repo and I'll change them no questions asked.)
 
-Armageddon Rune - While a boss is alive, taking any damage will instantly kill you. Upon beating a boss, however, it will drop 5 treasure bags, or 6 in Expert Mode.
-
-Defiled Rune - All damage inflicted by monsters is doubled. Enemies drop twice as much money.
-
-Frozen Rune - You deal half damage with all weapons. Enemies drop 50% more money.
-
-Scorched Rune - All life regeneration is disabled. Enemies drop additional hearts, and bosses drop life crystals and mana crystals. Hardmode bosses drop life fruits (in Hardmode only, of course.)
+* **Armageddon Rune** - While a boss is alive, taking any damage will instantly kill you. Upon beating a boss, however, it will drop 5 treasure bags, or 6 in Expert Mode.
+* **Defiled Rune** - All damage inflicted by monsters is doubled. Enemies drop twice as much money.
+* **Frozen Rune** - You deal half damage with all weapons. Enemies drop 50% more money.
+* **Scorched Rune** - All life regeneration is disabled. Enemies drop additional hearts, and bosses drop life crystals and mana crystals. Hardmode bosses drop life fruits (in Hardmode only, of course.)
 
 The Apocalypse Sigil enables all four of these runes at once, and grants normal enemies a 1% chance to drop a Basalt Chunk that sells for 1 gold. Bosses will always drop two chunks on death. In Armageddon, bosses also drop one chunk, regardless of if Apocalypse is active.
 
