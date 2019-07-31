@@ -3,7 +3,7 @@ Challenge Runes borrows the challenge items from Calamity and separates them int
 
 I don't claim originality for the Armageddon and Defiled runes - they are directly referencing Calamity and have very similar effects. I wanted to adapt these ideas into a standalone mod so that they could be used in normal Terraria and other content mods, too.
 
-(note to MountainDrew - I kept the names so that people would be able to switch between the two and understand what the runes do. If this bothers you, leave an issue report on this repo and I'll change them no questions asked.)
+(note to MountainDrew, creator of Calamity and original conceptualizer of Armageddon and Defiled - I kept the names so that people would be able to switch between the two and understand what the runes do. If this bothers you, leave an issue report on this repo and I'll change them no questions asked.)
 
 * **Armageddon Rune** - While a boss is alive, taking any damage will instantly kill you. Upon beating a boss, however, it will drop 5 treasure bags, or 6 in Expert Mode.
 * **Defiled Rune** - All damage inflicted by monsters is doubled. Enemies drop twice as much money.
