@@ -1,4 +1,4 @@
 author = Ilysen
-version = 1.0
+version = 1.0.0.1
 displayName = Challenge Runes
 homepage = https://github.com/Ilysen/ChallengeRunes

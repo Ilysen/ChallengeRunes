@@ -18,6 +18,6 @@ All runes and sigils can be crafted at a demon altar for no cost.
 
 ### Jul. 31, 2019
 
-#### 1.0
+#### 1.0.0.1
 
 * Initial commit. Includes Armageddon, Defiled, Frozen, and Scorched runes, plus the Apocalypse Sigil for activating them all.
