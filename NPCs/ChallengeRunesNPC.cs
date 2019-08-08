@@ -45,10 +45,7 @@ namespace ChallengeRunes.NPCs
             }
             if(scorched)
             {
-                for (int i = 0; i < 2 + Main.rand.Next(1); i++)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Heart);
-                }
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Heart);
                 if(npc.boss)
                 {
                     for(int i = 0; i < 3; i++)
@@ -56,7 +53,7 @@ namespace ChallengeRunes.NPCs
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LifeCrystal);
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.ManaCrystal);
                     }
-                    if (Main.hardMode && npc.lifeMax > 15000)
+                    if (Main.hardMode && npc.lifeMax > 10000)
                     {
                         for (int i = 0; i < 2; i++)
                         {

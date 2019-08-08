@@ -10,7 +10,10 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Armageddon Rune");
-            Tooltip.SetDefault("A rune prophesying the end\nWhile active, bosses will instantly kill you\nDefeating a boss will yield five treasure bags\nCauses instant death if toggled while a boss is active");
+            Tooltip.SetDefault("A rune prophesying the end\n" +
+                "While active, bosses will instantly kill you\n" +
+                "Defeating a boss will yield five additional treasure bags\n" +
+                "Causes instant death if toggled while a boss is active");
         }
 
         public override void SetDefaults()

@@ -10,7 +10,10 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Defiled Rune");
-            Tooltip.SetDefault("A rune of sickly, profane defilement\nWhile active, damage taken from monsters is doubled\nEnemies will drop twice as much money\nBosses will drop an additional treasure bag");
+            Tooltip.SetDefault("A rune of sickly, profane defilement\n" +
+                "While active, damage taken from monsters is doubled\n" +
+                "Enemies will drop twice as much money\n" +
+                "Bosses will drop an additional treasure bag");
         }
 
         public override void SetDefaults()

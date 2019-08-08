@@ -10,7 +10,9 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Apocalypse Sigil");
-            Tooltip.SetDefault("The culmination of those who came before\nActivates all challenge runes\nWhile active, runes can't be disabled until this one is disabled");
+            Tooltip.SetDefault("The culmination of those who came before\n" +
+                "Activates all challenge runes\n" +
+                "While active, runes can't be disabled until this one is disabled");
         }
 
         public override void SetDefaults()

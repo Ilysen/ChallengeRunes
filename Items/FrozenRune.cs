@@ -10,7 +10,10 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Frozen Rune");
-            Tooltip.SetDefault("A rune of numbing, killing cold\nWhile active, you deal half damage\nEnemies will drop 50% more money");
+            Tooltip.SetDefault("A rune of numbing, wintry cold\n" +
+                "While active, you deal half damage\n" +
+                "Mana costs are cut in half\n" +
+                "Enemies will drop 50% more money");
         }
 
         public override void SetDefaults()

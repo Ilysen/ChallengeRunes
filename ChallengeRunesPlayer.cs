@@ -36,12 +36,8 @@ namespace ChallengeRunes
             ChallengeRunes crMod = (ChallengeRunes)mod;
             if (crMod.Frozen(true))
             {
-                player.meleeDamage *= 0.5f;
-                player.rangedDamage *= 0.5f;
-                player.magicDamage *= 0.5f;
-                player.rocketDamage *= 0.5f;
-                player.minionDamage *= 0.5f;
-                player.thrownDamage *= 0.5f;
+                player.allDamageMult *= 0.5f;
+                player.manaCost *= 0.5f;
             }
             if(crMod.Scorched(true))
             {
