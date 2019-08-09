@@ -17,9 +17,6 @@ namespace ChallengeRunes.Items
             item.height = 22;
             item.rare = 1;
             item.maxStack = 99;
-            item.useAnimation = 30;
-            item.useTime = 30;
-            item.useStyle = 4;
             item.value = Item.sellPrice(0, 1, 0, 0);
         }
     }

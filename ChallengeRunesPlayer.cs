@@ -45,6 +45,15 @@ namespace ChallengeRunes
                 player.lifeRegenCount = 0;
                 player.lifeRegenTime = 0;
             }
+            if(crMod.Petrified(true))
+            {
+                player.moveSpeed *= 0.25f;
+            }
+            if(crMod.Flesh(true))
+            {
+                player.witheredArmor = true; // unsure if armor polish gives immunity to brokenArmor, but why not play safe?
+                player.armorPenetration = 50;
+            }
         }
     }
 }

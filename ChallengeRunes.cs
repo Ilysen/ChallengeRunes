@@ -18,6 +18,10 @@ namespace ChallengeRunes
         private bool defiledActive;
         private bool frozenActive; // LET IT GOOO
         private bool scorchedActive;
+
+        private bool petrifiedActive;
+        private bool fleshActive;
+
         private bool apocalypse;
 
         public bool Armageddon(bool checkOnly = false)
@@ -46,6 +50,20 @@ namespace ChallengeRunes
             if (!checkOnly)
                 scorchedActive = !scorchedActive;
             return scorchedActive;
+        }
+
+        public bool Petrified(bool checkOnly = false)
+        {
+            if (!checkOnly)
+                petrifiedActive = !petrifiedActive;
+            return petrifiedActive;
+        }
+
+        public bool Flesh(bool checkOnly = false)
+        {
+            if (!checkOnly)
+                fleshActive = !fleshActive;
+            return fleshActive;
         }
 
         public bool Apocalypse(bool checkOnly = false)

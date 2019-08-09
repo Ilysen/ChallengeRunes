@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 
 namespace ChallengeRunes.Items
 {
-	public class ApocalypseSigil : ModItem
+	public class FleshRune : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Apocalypse Sigil");
-            Tooltip.SetDefault("The culmination of those who came before\n" +
-                "Activates Armageddon, Defiled, Frozen, and Scorched\n" +
-                "While active, runes can't be disabled until this one is disabled");
+            DisplayName.SetDefault("Flesh Rune");
+            Tooltip.SetDefault("A wet, bleeding rune\n" +
+                "While active, defense is halved\n" +
+                "Armor penetration is increased by 50");
         }
 
         public override void SetDefaults()
@@ -21,7 +21,7 @@ namespace ChallengeRunes.Items
             item.width = 40;
             item.height = 40;
             item.maxStack = 1;
-            item.rare = -12;
+            item.rare = 4;
             item.useAnimation = 30;
             item.useTime = 30;
             item.useStyle = 4;
@@ -40,14 +40,14 @@ namespace ChallengeRunes.Items
                 }
             }
             ChallengeRunes crMod = (ChallengeRunes)mod;
-            bool apocalypse = crMod.Apocalypse();
-            if (apocalypse)
+            bool arma = crMod.Flesh();
+            if(arma)
             {
-                Main.NewText("Armageddon, Defiled, Frozen, and Scorched runes are now active.", 125, 125, 125);
+                Main.NewText("Flesh is now active.", 220, 30, 100);
             }
             else
             {
-                Main.NewText("Armageddon, Defiled, Frozen, and Scorched runes have been disabled.", 125, 125, 125);
+                Main.NewText("Flesh is no longer active.", 220, 30, 100);
             }
             return true;
         }

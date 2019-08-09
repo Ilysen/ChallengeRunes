@@ -5,14 +5,15 @@ using Terraria.ModLoader;
 
 namespace ChallengeRunes.Items
 {
-	public class ApocalypseSigil : ModItem
+	public class PetrifiedRune : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Apocalypse Sigil");
-            Tooltip.SetDefault("The culmination of those who came before\n" +
-                "Activates Armageddon, Defiled, Frozen, and Scorched\n" +
-                "While active, runes can't be disabled until this one is disabled");
+            DisplayName.SetDefault("Petrified Rune");
+            Tooltip.SetDefault("A crumbling, rocky rune\n" +
+                "While active, movement acceleration is reduced by 75%\n" +
+                "Hostile enemies may drop igneous gravel\n" +
+                "Smelt igneous gravel into various ores at a hellforge");
         }
 
         public override void SetDefaults()
@@ -21,7 +22,7 @@ namespace ChallengeRunes.Items
             item.width = 40;
             item.height = 40;
             item.maxStack = 1;
-            item.rare = -12;
+            item.rare = 3;
             item.useAnimation = 30;
             item.useTime = 30;
             item.useStyle = 4;
@@ -40,14 +41,14 @@ namespace ChallengeRunes.Items
                 }
             }
             ChallengeRunes crMod = (ChallengeRunes)mod;
-            bool apocalypse = crMod.Apocalypse();
-            if (apocalypse)
+            bool arma = crMod.Petrified();
+            if(arma)
             {
-                Main.NewText("Armageddon, Defiled, Frozen, and Scorched runes are now active.", 125, 125, 125);
+                Main.NewText("Petrified is now active.", 175, 0, 0);
             }
             else
             {
-                Main.NewText("Armageddon, Defiled, Frozen, and Scorched runes have been disabled.", 125, 125, 125);
+                Main.NewText("Petrified is no longer active.", 175, 0, 0);
             }
             return true;
         }

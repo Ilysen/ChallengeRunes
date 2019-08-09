@@ -22,6 +22,8 @@ namespace ChallengeRunes.NPCs
             bool frozen = crMod.Frozen(true);
             bool scorched = crMod.Scorched(true);
             bool apocalypse = crMod.Apocalypse(true);
+
+            bool petrified = crMod.Petrified(true);
             if (armageddon && npc.boss)
             {
                 Main.PlaySound(SoundID.NPCDeath60.WithVolume(0.5f), npc.Center);
@@ -43,36 +45,46 @@ namespace ChallengeRunes.NPCs
             {
                 npc.value *= 1.5f;
             }
-            if(scorched)
+            if (!npc.friendly)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Heart);
-                if(npc.boss)
+                if (scorched)
                 {
-                    for(int i = 0; i < 3; i++)
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Heart);
+                    if (npc.boss)
                     {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LifeCrystal);
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.ManaCrystal);
-                    }
-                    if (Main.hardMode && npc.lifeMax > 10000)
-                    {
-                        for (int i = 0; i < 2; i++)
+                        for (int i = 0; i < 3; i++)
                         {
-                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LifeFruit);
+                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LifeCrystal);
+                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.ManaCrystal);
+                        }
+                        if (Main.hardMode && npc.lifeMax > 10000)
+                        {
+                            for (int i = 0; i < 2; i++)
+                            {
+                                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.LifeFruit);
+                            }
                         }
                     }
                 }
-            }
-            if(apocalypse)
-            {
-                if(Main.rand.Next(100) == 0)
+                if (apocalypse)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BasaltChunk"));
-                }
-                else if(npc.boss)
-                {
-                    for(int i = 0; i < 2; i++)
+                    if (Main.rand.Next(100) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BasaltChunk"));
+                    }
+                    else if (npc.boss)
+                    {
+                        for (int i = 0; i < 2; i++)
+                        {
+                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BasaltChunk"));
+                        }
+                    }
+                }
+                if (petrified)
+                {
+                    if(Main.rand.Next(3) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IgneousGravel"));
                     }
                 }
             }
