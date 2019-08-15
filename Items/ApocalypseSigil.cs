@@ -43,11 +43,11 @@ namespace ChallengeRunes.Items
             bool apocalypse = crMod.Apocalypse();
             if (apocalypse)
             {
-                Main.NewText("Armageddon, Defiled, Frozen, and Scorched runes are now active.", 125, 125, 125);
+                ChallengeRunes.NewText(player, "Armageddon, Defiled, Frozen, and Scorched runes are now active.", 125, 125, 125);
             }
             else
             {
-                Main.NewText("Armageddon, Defiled, Frozen, and Scorched runes have been disabled.", 125, 125, 125);
+                ChallengeRunes.NewText(player, "Armageddon, Defiled, Frozen, and Scorched runes have been disabled.", 125, 125, 125);
             }
             return true;
         }

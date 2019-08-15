@@ -43,17 +43,17 @@ namespace ChallengeRunes.Items
             ChallengeRunes crMod = (ChallengeRunes)mod;
             if(crMod.Apocalypse(true))
             {
-                Main.NewText("Apocalypse is active; disable that first.", 125, 125, 125);
+                ChallengeRunes.NewText(player, "Apocalypse is active; disable that first.", 125, 125, 125);
                 return true;
             }
             bool arma = crMod.Armageddon();
             if(arma)
             {
-                Main.NewText("Armageddon is now active.", 255, 0, 255);
+                ChallengeRunes.NewText(player, "Armageddon is now active.", 255, 0, 255);
             }
             else
             {
-                Main.NewText("Armageddon is no longer active.", 255, 0, 255);
+                ChallengeRunes.NewText(player, "Armageddon is no longer active.", 255, 0, 255);
             }
             return true;
         }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace ChallengeRunes
@@ -14,13 +15,23 @@ namespace ChallengeRunes
             };
         }
 
+        public static void NewText(Player player, string text, byte r, byte g, byte b)
+        {
+            if (player.whoAmI == Main.myPlayer)
+            {
+                Main.NewText(text, r, g, b);
+            }
+        }
+
+        public static bool IsChallenger(Player player)
+        {
+            return player.whoAmI == Main.myPlayer;
+        }
+
         private bool armageddonActive;
         private bool defiledActive;
         private bool frozenActive; // LET IT GOOO
         private bool scorchedActive;
-
-        private bool petrifiedActive;
-        private bool fleshActive;
 
         private bool apocalypse;
 
@@ -50,20 +61,6 @@ namespace ChallengeRunes
             if (!checkOnly)
                 scorchedActive = !scorchedActive;
             return scorchedActive;
-        }
-
-        public bool Petrified(bool checkOnly = false)
-        {
-            if (!checkOnly)
-                petrifiedActive = !petrifiedActive;
-            return petrifiedActive;
-        }
-
-        public bool Flesh(bool checkOnly = false)
-        {
-            if (!checkOnly)
-                fleshActive = !fleshActive;
-            return fleshActive;
         }
 
         public bool Apocalypse(bool checkOnly = false)

@@ -16,14 +16,16 @@ namespace ChallengeRunes.NPCs
         
 		public override void NPCLoot(NPC npc)
         {
+            if (!ChallengeRunes.IsChallenger(Main.LocalPlayer))
+            {
+                return;
+            }
             ChallengeRunes crMod = (ChallengeRunes)mod;
             bool armageddon = crMod.Armageddon(true);
             bool defiled = crMod.Defiled(true);
             bool frozen = crMod.Frozen(true);
             bool scorched = crMod.Scorched(true);
             bool apocalypse = crMod.Apocalypse(true);
-
-            bool petrified = crMod.Petrified(true);
             if (armageddon && npc.boss)
             {
                 Main.PlaySound(SoundID.NPCDeath60.WithVolume(0.5f), npc.Center);
@@ -31,9 +33,9 @@ namespace ChallengeRunes.NPCs
                 {
                     npc.DropBossBags(); // Armageddon drops five additional bags
                 }
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BasaltChunk"));
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.GoldCoin);
             }
-            if(defiled)
+            else if(defiled)
             {
                 npc.value *= 2;
                 if(npc.boss)
@@ -70,21 +72,14 @@ namespace ChallengeRunes.NPCs
                 {
                     if (Main.rand.Next(100) == 0)
                     {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BasaltChunk"));
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.GoldCoin);
                     }
                     else if (npc.boss)
                     {
                         for (int i = 0; i < 2; i++)
                         {
-                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BasaltChunk"));
+                            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.GoldCoin);
                         }
-                    }
-                }
-                if (petrified)
-                {
-                    if(Main.rand.Next(3) == 0)
-                    {
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("IgneousGravel"));
                     }
                 }
             }

@@ -40,22 +40,22 @@ namespace ChallengeRunes.Items
             ChallengeRunes crMod = (ChallengeRunes)mod;
             if (crMod.Apocalypse(true))
             {
-                Main.NewText("Apocalypse is active; disable that first.", 125, 125, 125);
+                ChallengeRunes.NewText(player, "Apocalypse is active; disable that first.", 125, 125, 125);
                 return true;
             }
             if (player.statLife < player.statLifeMax2)
             {
-                Main.NewText("Get to full health first.", 125, 125, 125);
+                ChallengeRunes.NewText(player, "Get to full health first.", 125, 125, 125);
                 return true;
             }
             bool scorched = crMod.Scorched();
             if (scorched)
             {
-                Main.NewText("Scorched is now active.", 255, 0, 0);
+                ChallengeRunes.NewText(player, "Scorched is now active.", 255, 0, 135);
             }
             else
             {
-                Main.NewText("Scorched is no longer active.", 255, 0, 0);
+                ChallengeRunes.NewText(player, "Scorched is no longer active.", 255, 0, 135);
             }
             return true;
         }

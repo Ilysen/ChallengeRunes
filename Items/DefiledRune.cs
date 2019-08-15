@@ -43,17 +43,17 @@ namespace ChallengeRunes.Items
             ChallengeRunes crMod = (ChallengeRunes)mod;
             if (crMod.Apocalypse(true))
             {
-                Main.NewText("Apocalypse is active; disable that first.", 125, 125, 125);
+                ChallengeRunes.NewText(player, "Apocalypse is active; disable that first.", 125, 125, 125);
                 return true;
             }
             bool defi = crMod.Defiled();
             if(defi)
             {
-                Main.NewText("Defiled is now active.", 0, 255, 0);
+                ChallengeRunes.NewText(player, "Defiled is now active.", 0, 255, 0);
             }
             else
             {
-                Main.NewText("Defiled is no longer active.", 0, 255, 0);
+                ChallengeRunes.NewText(player, "Defiled is no longer active.", 0, 255, 0);
             }
             return true;
         }

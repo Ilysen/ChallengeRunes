@@ -12,13 +12,17 @@ I don't claim originality for the Armageddon and Defiled runes - they are direct
 
 The Apocalypse Sigil enables all four of these runes at once, and grants normal enemies a 1% chance to drop a Basalt Chunk that sells for 1 gold. Bosses will always drop two chunks on death. In Armageddon, bosses also drop one chunk, regardless of if Apocalypse is active.
 
-There is also a second set of runes, focused less around direct combat changes and more around affecting the player as a whole:
-
-* **Petrified Rune** - You move 75% slower. Enemies can drop Igneous Gravel that can be smelted into ores at a hellforge.
-
 All runes and sigils can be crafted at a demon altar for no cost.
 
 # Changelog
+
+### Aug. 15, 2019
+
+#### 1.0.0.4
+
+* Improvements to multiplayer use.
+* While using a rune, you will emit faint particle effects in the color of that rune.
+* Removed basalt chunks and replaced all instances of them with gold coins.
 
 ### Aug. 7, 2019
 
