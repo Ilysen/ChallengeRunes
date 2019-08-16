@@ -51,11 +51,11 @@ namespace ChallengeRunes.Items
             bool scorched = crMod.Scorched();
             if (scorched)
             {
-                ChallengeRunes.NewText(player, "Scorched is now active.", 255, 0, 135);
+                ChallengeRunes.NewText(player, "Scorched is now active.", 255, 150, 55);
             }
             else
             {
-                ChallengeRunes.NewText(player, "Scorched is no longer active.", 255, 0, 135);
+                ChallengeRunes.NewText(player, "Scorched is no longer active.", 255, 150, 55);
             }
             return true;
         }

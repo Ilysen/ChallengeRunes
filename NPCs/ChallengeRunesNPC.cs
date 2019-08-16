@@ -51,7 +51,6 @@ namespace ChallengeRunes.NPCs
             {
                 if (scorched)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Heart);
                     if (npc.boss)
                     {
                         for (int i = 0; i < 3; i++)

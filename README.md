@@ -18,6 +18,11 @@ All runes and sigils can be crafted at a demon altar for no cost.
 
 ### Aug. 15, 2019
 
+#### 1.0.0.5
+
+* Fixed the Scorched rune having improper colors.
+* Removed the Scorched rune making every enemy drop hearts, since it arguably trivialized a lot of things and inarguably trivialized a few more.
+
 #### 1.0.0.4
 
 * Improvements to multiplayer use.

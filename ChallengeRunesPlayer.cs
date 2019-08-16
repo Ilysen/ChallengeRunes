@@ -81,7 +81,7 @@ namespace ChallengeRunes
             {
                 if (Main.rand.Next(0, 15) == 0)
                 {
-                    Dust.NewDust(player.Center, 5, 5, 264, 0.5f, 0, 0, new Color(255, 0, 135), 1f);
+                    Dust.NewDust(player.Center, 5, 5, 264, 0.5f, 0, 0, new Color(255, 150, 55), 1f);
                 }
             }
         }
