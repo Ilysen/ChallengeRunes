@@ -16,6 +16,13 @@ All runes and sigils can be crafted at a demon altar for no cost.
 
 # Changelog
 
+### Aug. 17, 2019
+
+#### 1.0.1
+
+* Complete refactor of backend code. It should now be much more stable, and function well in multiplayer.
+* Removed the apocalypse sigil. Todo: readd at a later date?
+
 ### Aug. 15, 2019
 
 #### 1.0.0.5

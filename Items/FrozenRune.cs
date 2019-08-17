@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,9 +9,9 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Frozen Rune");
-            Tooltip.SetDefault("A rune of numbing, wintry cold\n" +
-                "While active, you deal half damage\n" +
-                "Enemies drop 50% more cash");
+            Tooltip.SetDefault("While active, you deal half damage\n" +
+                "Enemies will drop 50% more money\n" +
+                "Bosses will drop an additional gold coin for each 500 points of max life they have");
         }
 
         public override void SetDefaults()
@@ -27,32 +26,24 @@ namespace ChallengeRunes.Items
             item.useStyle = 4;
         }
 
+        public override bool CanUseItem(Player player)
+        {
+            if (ChallengeRunes.AntiCheese(player))
+                return false;
+            return true;
+        }
+
         public override bool UseItem(Player player)
         {
-            foreach (NPC npc in Main.npc)
-            {
-                if (npc.boss && npc.active)
-                {
-                    PlayerDeathReason runeDeath = PlayerDeathReason.ByCustomReason(player.name + " defied the runes.");
-                    Main.PlaySound(SoundID.NPCDeath59.WithVolume(0.5f), player.Center);
-                    player.KillMe(runeDeath, 1.0, 0, false);
-                    return true;
-                }
-            }
-            ChallengeRunes crMod = (ChallengeRunes)mod;
-            if (crMod.Apocalypse(true))
-            {
-                ChallengeRunes.NewText(player, "Apocalypse is active; disable that first.", 125, 125, 125);
-                return true;
-            }
-            bool frozen = crMod.Frozen();
-            if(frozen)
+            if (!ChallengeRunes.CheckRune(player, "frozen"))
             {
                 ChallengeRunes.NewText(player, "Frozen is now active.", 135, 245, 255);
+                ChallengeRunes.SetRune(player, "frozen");
             }
             else
             {
                 ChallengeRunes.NewText(player, "Frozen is no longer active.", 135, 245, 255);
+                ChallengeRunes.RemoveRune(player, "frozen");
             }
             return true;
         }

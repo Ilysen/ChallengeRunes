@@ -1,3 +1,5 @@
-Challenge Runes borrows the challenge items from Calamity and separates them into their own mod. These items can be used to increase the challenge of certain parts of the game, while offering increased rewards, such as Frozen (which halves damage dealt, but increases enemy drops) and Defiled (which doubles damage taken, but doubles enemy money drops.)
+NOTE: Multiplayer right now is highly experimental. Please report your experiences, good or bad, on the forum thread.
 
-All runes and sigils can be crafted at a demon altar for no cost. To see a full list, check the mod's homepage!
+Challenge Runes borrows the challenge items from Calamity and separates them into their own mod. These items can be used to increase the challenge of certain parts of the game, while offering increased rewards, such as Frozen (which halves damage dealt, but makes bosses drop a massive amount of money on a full kill) and Defiled (which doubles damage taken, but also doubles enemy money drops.)
+
+All runes and sigils can be crafted at a demon altar for no cost. To see a full list, check the mod's homepage.

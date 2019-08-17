@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,10 +9,10 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Armageddon Rune");
-            Tooltip.SetDefault("A rune prophesying the end\n" +
-                "While active, bosses will instantly kill you\n" +
-                "Defeating a boss will yield five additional treasure bags\n" +
-                "Causes instant death if toggled while a boss is active");
+            Tooltip.SetDefault("While active, bosses will instantly kill you\n" +
+                "Defeating a boss will yield six additional treasure bags\n" +
+                "Causes instant death if toggled while a boss is active\n" +
+                "Deactivates upon death");
         }
 
         public override void SetDefaults()
@@ -28,32 +27,24 @@ namespace ChallengeRunes.Items
             item.useStyle = 4;
         }
 
+        public override bool CanUseItem(Player player)
+        {
+            if (ChallengeRunes.AntiCheese(player))
+                return false;
+            return true;
+        }
+
         public override bool UseItem(Player player)
         {
-            foreach (NPC npc in Main.npc)
-            {
-                if (npc.boss && npc.active)
-                {
-                    PlayerDeathReason runeDeath = PlayerDeathReason.ByCustomReason(player.name + " defied the runes.");
-                    Main.PlaySound(SoundID.NPCDeath59.WithVolume(0.5f), player.Center);
-                    player.KillMe(runeDeath, 1.0, 0, false);
-                    return true;
-                }
-            }
-            ChallengeRunes crMod = (ChallengeRunes)mod;
-            if(crMod.Apocalypse(true))
-            {
-                ChallengeRunes.NewText(player, "Apocalypse is active; disable that first.", 125, 125, 125);
-                return true;
-            }
-            bool arma = crMod.Armageddon();
-            if(arma)
+            if(!ChallengeRunes.CheckRune(player, "armageddon"))
             {
                 ChallengeRunes.NewText(player, "Armageddon is now active.", 255, 0, 255);
+                ChallengeRunes.SetRune(player, "armageddon");
             }
             else
             {
                 ChallengeRunes.NewText(player, "Armageddon is no longer active.", 255, 0, 255);
+                ChallengeRunes.RemoveRune(player, "armageddon");
             }
             return true;
         }

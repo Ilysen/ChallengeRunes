@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,7 +9,9 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Scorched Rune");
-            Tooltip.SetDefault("A rune of blazing, withering heat\nWhile active, all life regeneration is disabled\nDamage-over-time debuffs won't affect you\nEnemies will drop additional hearts\nBosses will drop life crystals and mana crystals\nHardmode bosses will also drop life fruits");
+            Tooltip.SetDefault("While active, all life regeneration is disabled\n" +
+                "Bosses will drop life crystals and mana crystals\n" +
+                "Hardmode bosses will also drop life fruits");
         }
 
         public override void SetDefaults()
@@ -25,37 +26,24 @@ namespace ChallengeRunes.Items
             item.useStyle = 4;
         }
 
+        public override bool CanUseItem(Player player)
+        {
+            if (ChallengeRunes.AntiCheese(player))
+                return false;
+            return true;
+        }
+
         public override bool UseItem(Player player)
         {
-            foreach (NPC npc in Main.npc)
-            {
-                if (npc.boss && npc.active)
-                {
-                    PlayerDeathReason runeDeath = PlayerDeathReason.ByCustomReason(player.name + " defied the runes.");
-                    Main.PlaySound(SoundID.NPCDeath59.WithVolume(0.5f), player.Center);
-                    player.KillMe(runeDeath, 1.0, 0, false);
-                    return true;
-                }
-            }
-            ChallengeRunes crMod = (ChallengeRunes)mod;
-            if (crMod.Apocalypse(true))
-            {
-                ChallengeRunes.NewText(player, "Apocalypse is active; disable that first.", 125, 125, 125);
-                return true;
-            }
-            if (player.statLife < player.statLifeMax2)
-            {
-                ChallengeRunes.NewText(player, "Get to full health first.", 125, 125, 125);
-                return true;
-            }
-            bool scorched = crMod.Scorched();
-            if (scorched)
+            if (!ChallengeRunes.CheckRune(player, "scorched"))
             {
                 ChallengeRunes.NewText(player, "Scorched is now active.", 255, 150, 55);
+                ChallengeRunes.SetRune(player, "scorched");
             }
             else
             {
                 ChallengeRunes.NewText(player, "Scorched is no longer active.", 255, 150, 55);
+                ChallengeRunes.RemoveRune(player, "scorched");
             }
             return true;
         }

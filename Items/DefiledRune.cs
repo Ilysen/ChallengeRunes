@@ -10,10 +10,9 @@ namespace ChallengeRunes.Items
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Defiled Rune");
-            Tooltip.SetDefault("A rune of sickly, profane defilement\n" +
-                "While active, damage taken from monsters is doubled\n" +
+            Tooltip.SetDefault("While active, damage taken from monsters is doubled\n" +
                 "Enemies will drop twice as much money\n" +
-                "Bosses will drop an additional treasure bag");
+                "Bosses will drop an additional treasure bag (not stacking with Armageddon)");
         }
 
         public override void SetDefaults()
@@ -28,32 +27,24 @@ namespace ChallengeRunes.Items
             item.useStyle = 4;
         }
 
+        public override bool CanUseItem(Player player)
+        {
+            if (ChallengeRunes.AntiCheese(player))
+                return false;
+            return true;
+        }
+
         public override bool UseItem(Player player)
         {
-            foreach (NPC npc in Main.npc)
-            {
-                if (npc.boss && npc.active)
-                {
-                    PlayerDeathReason runeDeath = PlayerDeathReason.ByCustomReason(player.name + " defied the runes.");
-                    Main.PlaySound(SoundID.NPCDeath59.WithVolume(0.5f), player.Center);
-                    player.KillMe(runeDeath, 1.0, 0, false);
-                    return true;
-                }
-            }
-            ChallengeRunes crMod = (ChallengeRunes)mod;
-            if (crMod.Apocalypse(true))
-            {
-                ChallengeRunes.NewText(player, "Apocalypse is active; disable that first.", 125, 125, 125);
-                return true;
-            }
-            bool defi = crMod.Defiled();
-            if(defi)
+            if (!ChallengeRunes.CheckRune(player, "defiled"))
             {
                 ChallengeRunes.NewText(player, "Defiled is now active.", 0, 255, 0);
+                ChallengeRunes.SetRune(player, "defiled");
             }
             else
             {
                 ChallengeRunes.NewText(player, "Defiled is no longer active.", 0, 255, 0);
+                ChallengeRunes.RemoveRune(player, "defiled");
             }
             return true;
         }
